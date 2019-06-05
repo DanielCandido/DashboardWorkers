@@ -1,0 +1,127 @@
+html, body{margin: 0 auto; background-color: #434857;}
+
+.row{
+padding-top: 30px;
+background-color: #434857;}
+
+.pk{
+	background-color: #252830;
+}
+
+.sidebar{
+	height: 100%;
+	min-height: 100vh;
+	background-color: #252830;
+	width: 280px;
+	float: left;
+	text-align: center;
+}
+
+.sidebar div{
+	margin-top: 25px !important; 
+}
+
+.search{
+	margin-left: 5px !important;
+	-webkit-transition: width 0.4s ease-in-out;
+  	transition: width 0.4s ease-in-out;
+	padding: 5px;
+	border-radius: 5px;
+	background-color:#434857;
+	color: white;
+	margin: 0 auto !important;
+  background-image: url('icons/searchicon.png');
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding-left: 40px;
+}
+
+.search:focus{
+	width: 240px;
+}
+
+.title{
+	position: initial;
+	color: white;
+}
+
+.menu-dash ul{
+	list-style: none;
+	text-align: center;
+	width: 235px;
+}
+
+.menu-dash ul li{
+	padding: 8px;
+}
+
+.menu-dash ul li a{
+	text-decoration: none;
+	color: white;
+}
+
+.menu-dash ul li:hover{
+	background-color: #4682B4;
+	padding: 8px;
+	border-radius: 5px;
+}
+
+.btn-primary{
+	background-color: #434857!important;
+	border-color: white !important;
+}
+
+.btn-primary:hover{
+	background-color: #4682B4 !important;
+}
+
+.card-color{
+	background-color: #B0C4DE !important;
+	text-align: center !important;
+}
+
+.card-text{
+	font-size: 20px !important;
+	font-style: italic !important;
+}
+
+.modal-content{
+	background-color: #252830!important;
+	color: white !important;
+	text-align: center !important;
+}
+
+.modal-content input{
+	padding: 5px !important;
+	margin: 5px !important;
+	-webkit-transition: width 0.4s ease-in-out;
+  	transition: width 0.4s ease-in-out;
+	padding: 5px;
+	border-radius: 5px;
+	background-color:#434857;
+	}
+}
+
+.open-modal{
+	border: 5px !important;
+}
+
+.table-user
+{
+	display: none;
+}
+
+.fechar-tabela{
+	display: none;
+}
+
+.fechar-tabela button{
+	width: 40px;
+	height: 40px;
+	background-color: red;
+	border: none;
+	color: white;
+	padding: 5px;
+	text-align: center;
+}
+
