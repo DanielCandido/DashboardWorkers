@@ -30,9 +30,6 @@ background-color: #434857;}
 	background-color:#434857;
 	color: white;
 	margin: 0 auto !important;
-  background-image: url('icons/searchicon.png');
-  background-position: 10px 10px; 
-  background-repeat: no-repeat;
   padding-left: 40px;
 }
 
@@ -41,7 +38,6 @@ background-color: #434857;}
 }
 
 .title{
-	position: initial;
 	color: white;
 }
 
@@ -99,11 +95,14 @@ background-color: #434857;}
 	padding: 5px;
 	border-radius: 5px;
 	background-color:#434857;
+    color: white !importants;
 	}
 }
 
 .open-modal{
 	border: 5px !important;
+    background-color: #434857!important;
+    display: none;
 }
 
 .table-user
@@ -111,11 +110,20 @@ background-color: #434857;}
 	display: none;
 }
 
-.fechar-tabela{
+.table-worker
+{
+    display: none;
+}
+
+.fechar-usuarios{
 	display: none;
 }
 
-.fechar-tabela button{
+.fechar-prestadores{
+	display: none;
+}
+
+.fechar-usuarios button{
 	width: 40px;
 	height: 40px;
 	background-color: red;
@@ -123,5 +131,23 @@ background-color: #434857;}
 	color: white;
 	padding: 5px;
 	text-align: center;
+}
+
+.fechar-prestadores button{
+	width: 40px;
+	height: 40px;
+	background-color: red;
+	border: none;
+	color: white;
+	padding: 5px;
+	text-align: center;
+}
+
+#cadastrar-usuario{
+    display: none;
+}
+
+#cadastrar-prestador{
+    display: none;
 }
 

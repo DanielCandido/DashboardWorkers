@@ -1,40 +1,47 @@
-var tbody = document.querySelector('table tbody');
+var tbody;
+var usuario = {};
 
-function Cadastrar(){
-	var _nome = document.getElementById('nome').value;
-	var _sobrenome = document.getElementById('sobrenome').value;
-	var _rg = document.getElementById('rg').value;
-	var _cpf = document.getElementById('cpf').value;
-	var _email = document.getElementById('email').value;
-	var _telefone = document.getElementById('telefone').value;
-	var _celular = document.getElementById('celular').value;
-	var _endereco = document.getElementById('endereco').value;
-	var _numerocasa = document.getElementById('numerocasa').value;
-	var _complemento = document.getElementById('complemento').value;
-	var _senha = document.getElementById('senha').value;	
-	var _confirme = document.getElementById('senha').value;
-
-	var usuario = {
-		nome: _nome,
-		sobrenome: _sobrenome,
-		rg: _rg,
-		cpf: _cpf,
-		email: _email,
-		telefone: _telefone,
-		celular: _celular,
-		endereco: _endereco,
-		numerocasa: _numerocasa,
-		complemento: _complemento,
-		senha: _senha
-	}
+function cadastrarUsuario() {
+    console.log(usuario);
+    usuario.Nome = document.getElementById('nome').value;
+    usuario.Sobrenome = document.getElementById('sobrenome').value;
+    usuario.Rg = document.getElementById('rg').value;
+    usuario.Cpf = document.getElementById('cpf').value;
+    usuario.Email = document.getElementById('email').value;
+    usuario.Telefone = document.getElementById('telefone').value;
+    usuario.Celular = document.getElementById('celular').value;
+    usuario.Endereco = document.getElementById('endereco').value;
+    usuario.Numerocasa = document.getElementById('numerocasa').value;
+    usuario.Complemento = document.getElementById('complemento').value;
+    usuario.Senha = document.getElementById('senha').value;
 
 	console.log(usuario);
+    
+    if (usuario.id === undefined || usuario.id === 0){
+        listarUsuarios('POST',0, usuario);
+    } else {
+        listarUsuarios('PUT',usuario.id, usuario);
+    }
+}   
 
-	ListarUsuarios('POST',0, usuario);
-
+function editarUsuario(_usuario){
+    document.getElementById('nome').value= _usuario.Nome;
+    document.getElementById('sobrenome').value= _usuario.Sobrenome;
+    document.getElementById('rg').value= _usuario.Rg;
+    document.getElementById('cpf').value= _usuario.Cpf;
+    document.getElementById('email').value= _usuario.Email;
+    document.getElementById('telefone').value= _usuario.Telefone;
+    document.getElementById('celular').value= _usuario.Celular;
+    document.getElementById('endereco').value= _usuario.Endereco;
+    document.getElementById('numerocasa').value= _usuario.NumeroCasa;
+    document.getElementById('complemento').value= _usuario.Complemento;
+    document.getElementById('senha').value= _usuario.Senha;
+    document.getElementById('confirme').value= _usuario.Confirme;
+    usuario = _usuario;
+    console.log(usuario);
 }
 
-function VerificaSenha(){
+function verificaSenha(){
 
 	var _senha = document.getElementById('senha').value;	
 	var _confirme = document.getElementById('confirme').value;
@@ -47,21 +54,19 @@ function VerificaSenha(){
 		}
 }	
 
-function ListarUsuarios(metodo, id, usuario){
-	tbody.innerHTML = '';
-
+function listarUsuarios(metodo, id, usuario){
 	var xhr = new XMLHttpRequest();
 
 	if (id === undefined || id === 0)
 		id = "";
 
-	xhr.open(metodo,`http:localhost:52682/api/Usuario/${id}`, true);
+	xhr.open(metodo, `http://localhost:55871/api/Usuario/${id}`, true);
 
 
 	xhr.onload = function (){
 		var usuarios = JSON.parse(this.responseText);
 		for(var i in usuarios){
-			MontaTabela(usuarios[i]);
+			montaTabela(usuarios[i]);
 		}
 
 		var total = usuarios.length;
@@ -81,9 +86,11 @@ function ListarUsuarios(metodo, id, usuario){
 	
 }
 
-ListarUsuarios('GET');
+listarUsuarios('GET');
 
-function MontaTabela(usuarios){
+function montaTabela(usuarios){
+    
+    tbody = document.querySelector('table tbody');
 
 	var trow = `<tr>
 					<td>${usuarios.Id}</td>
@@ -92,17 +99,35 @@ function MontaTabela(usuarios){
 					<td>${usuarios.Cpf}</td>
 					<td>${usuarios.Email}</td>
 					<td>${usuarios.Celular}</td>
-					<td><button class="btn btn-primary" >Ver Detalhes!</button></td>
+					<td><button class="btn btn-primary" data-toggle="modal" data-target="#modal-usuario" onclick ='editarUsuario(${JSON.stringify(usuarios)})'>Visualizar</button></td>
 				</tr>`
 	tbody.innerHTML += trow;			
 }
 
-function MostrarTabela(){
-	$('.table-user').show();
-	$('.fechar-tabela').show();
+function mostrarTabela(tipoTabela){
+    
+    if(tipoTabela === '.table-user'){
+	   $(tipoTabela).show();
+        $('.fechar-usuarios').show();
+        $('#cadastrar-usuario').show();
+        $('#cadastrar-prestador').hide();
+        $('.table-worker').hide();
+        $('.fechar-prestadores').hide();
+    }
+    
+    if(tipoTabela === '.table-worker'){
+        $(tipoTabela).show();
+        $('.fechar-prestadores').show();
+        $('#cadastrar-prestador').show();
+        $('#cadastrar-usuario').hide();
+        $('.table-user').hide();
+        $('.fechar-usuarios').hide();
+    }
 }
 
-function FechaTabela(){
+function fechaTabela(){
 	$('table').hide();
-	$('.fechar-tabela').hide();
+	$('.fechar-usuarios').hide();
+    $('.fechar-prestadores').hide();
+    $('#cadastrar-usuario').hide();
 }
