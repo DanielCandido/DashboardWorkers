@@ -1,0 +1,164 @@
+html, body{margin: 0 auto; background-image: url(/img/background.jpg);}
+
+tr {
+  display: table-row;
+}
+
+.img-perfil{
+	width: 85px;
+	height: 85px;
+	border-radius: 50%;
+}
+
+input{
+    border: solid 2px !important;
+}
+
+.body{
+	padding: 15px;
+}
+
+.row{
+padding-top: 30px;
+background-color: transparent;}
+
+.pk{
+	background-color: #f8f9fa;
+}
+
+.sidebar{
+	height: 100%;
+	min-height: 100vh;
+	background-color: #f8f9fa;
+	width: 280px;
+	float: left;
+	text-align: center;
+}
+
+.sidebar div{
+	margin-top: 25px !important; 
+}
+
+.search{
+	margin-left: 5px !important;
+	padding: 5px;
+	border-radius: 5px;
+	background-color:#ffffff;
+	color: #252830;
+	margin: 0 auto !important;
+}
+
+
+.title{
+	color: #252830;
+}
+
+.menu-dash ul{
+	list-style: none;
+	text-align: left !important;
+	width: 235px;
+	
+}
+
+.menu-dash ul li{
+	padding: 8px;
+	background-color: #ffffff;
+	border-radius: 5px;
+	border-color: black;
+}
+
+.menu-dash ul li a{
+	text-decoration: none;
+	color: black !important;
+}
+
+.menu-dash ul li:hover{
+	background-color: #B0C4DE;
+	padding: 8px;
+	border-radius: 5px;
+}
+
+.btn-primary{
+	background-color: #434857!important;
+	border-color: white !important;
+}
+
+.btn-primary:hover{
+	background-color: #252830 !important;
+}
+
+.card-color{
+	background-color: #B0C4DE !important;
+	text-align: center !important;
+}
+
+.card-text{
+	font-size: 20px !important;
+	font-style: italic !important;
+}
+
+.modal-content{
+	background-color: #252830!important;
+	color: white !important;
+}
+
+.modal-content input{
+	padding: 5px !important;
+	margin: 5px !important;
+	-webkit-transition: width 0.4s ease-in-out;
+  	transition: width 0.4s ease-in-out;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+.open-modal{
+	border: 5px !important;
+    background-color: #434857!important;
+    display: none;
+}
+
+.table-user
+{
+	display: none;
+}
+
+.table-worker
+{
+    display: none;
+}
+
+.fechar-usuarios{
+	display: none;
+}
+
+.fechar-prestadores{
+	display: none;
+}
+
+.fechar-usuarios button{
+	width: 40px;
+	height: 40px;
+	background-color: red;
+	border: none;
+	color: white;
+	padding: 5px;
+	text-align: center;
+}
+
+.fechar-prestadores button{
+	width: 40px;
+	height: 40px;
+	background-color: red;
+	border: none;
+	color: white;
+	padding: 5px;
+	text-align: center;
+}
+
+#cadastrar-usuario{
+    display: none;
+}
+
+#cadastrar-prestador{
+    display: none;
+}
